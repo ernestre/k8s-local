@@ -1,0 +1,26 @@
+apiVersion: kind.x-k8s.io/v1alpha4
+kind: Cluster
+nodes:
+  - role: control-plane
+  - role: worker
+    labels:
+      type: loadbalancer
+      region: us-east-1
+      zone: us-east-1a
+  - role: worker
+    labels:
+      type: loadbalancer
+      region: us-east-2
+      zone: us-east-2a
+  - role: worker
+    labels:
+      type: apps
+      region: us-east-1
+      zone: us-east-1a
+  - role: worker
+    labels:
+      type: apps
+      region: us-east-2
+      zone: us-east-2a
+networking:
+  disableDefaultCNI: true # disable kindnet
